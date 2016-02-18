@@ -81,7 +81,19 @@ public class MathOperation {
 	 * 
 	 */
 	public int getSixDigitNumbersCount() {
-		return 0;
+		int count = 0;
+		for (int i = 100000; i < 999999; i++){
+			int digitSix = i % 10;
+            int digitFive = (i / 10) % 10;
+            int digitFour = (i / 100) % 10;
+            int digitThree = (i / 1000) % 10;
+            int digitTwo = (i / 10000) % 10;
+            int digitOne = (i / 100000) % 10;
+            if ((digitOne + digitTwo + digitThree) == (digitFour + digitFive + digitSix)){
+            	count++;
+            }
+		}
+		return count;
 	}
 
 	/**
@@ -156,6 +168,7 @@ public class MathOperation {
 		long sumOfRow = math.getSumOfRow(5);
 		System.out.println("Sum of row factorials = " + sumOfRow);
 		int count = math.getSixDigitNumbersCount();
+		System.out.println("Count of Lucky numbers is " + count);
 		int [] fibbonacci = math.getFibonacciSeries(10); // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
 		//for(int i = 0; i < fibbonacci.length; i++){
 		//	System.out.println(fibbonacci[i]);
