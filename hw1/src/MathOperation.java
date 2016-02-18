@@ -10,7 +10,7 @@ public class MathOperation {
 	 * @return greatest common divider of two numbers
 	 */
 	public int getCommonDivisor(int firstNumber, int secondNumber) {
-		while (firstNumber != 0 && secondNumber != 0){
+		while (firstNumber != 0 && secondNumber != 0) {
 			if (firstNumber > secondNumber) {
 				firstNumber %= secondNumber;
 			} else {
@@ -29,10 +29,10 @@ public class MathOperation {
 	 */
 	public int getSumOfDigits(int number) {
 		int getSumOfDigits = 0;
-	while(number != 0){
-		getSumOfDigits = getSumOfDigits + (number % 10);
-		number/=10;
-	}
+		while (number != 0) {
+			getSumOfDigits = getSumOfDigits + (number % 10);
+			number /= 10;
+		}
 		return getSumOfDigits;
 	}
 
@@ -40,33 +40,36 @@ public class MathOperation {
 	 * Checks if the given number is prime or not
 	 * 
 	 * @param number
-	 * @return 
+	 * @return
 	 */
-	 public boolean isPrime(int number){
-			if (number < 2)	return false;
-				for (int i = 2; i*i < number-1; i++)
-					if (number % i==0)return false;
-				return true;
-				
-			}
-	
+	public boolean isPrime(int number) {
+		if (number < 2)
+			return false;
+		for (int i = 2; i * i < number - 1; i++)
+			if (number % i == 0)
+				return false;
+		return true;
+
+	}
+
 	/**
 	 * Returns sum of row: 1! - 2! + 3! – 4! + 5! - … + n!
 	 * 
 	 * @param n
 	 *            - positive number
 	 */
-	public static long factorial(int a){
+	public static long factorial(int a) {
 		int result = 1;
-		for (int i = 2; i <= a; ++i ){
-			result *= i; 
+		for (int i = 2; i <= a; ++i) {
+			result *= i;
 		}
 		return result;
 	}
+
 	public long getSumOfRow(int n) {
-		long result =1;
-		for (int i = 2; i <= n; i++){
-			if (i % 2 !=0){
+		long result = 1;
+		for (int i = 2; i <= n; i++) {
+			if (i % 2 != 0) {
 				result += factorial(i);
 			} else {
 				result -= factorial(i);
@@ -82,16 +85,16 @@ public class MathOperation {
 	 */
 	public int getSixDigitNumbersCount() {
 		int count = 0;
-		for (int i = 100000; i < 999999; i++){
+		for (int i = 100000; i < 999999; i++) {
 			int digitSix = i % 10;
-            int digitFive = (i / 10) % 10;
-            int digitFour = (i / 100) % 10;
-            int digitThree = (i / 1000) % 10;
-            int digitTwo = (i / 10000) % 10;
-            int digitOne = (i / 100000) % 10;
-            if ((digitOne + digitTwo + digitThree) == (digitFour + digitFive + digitSix)){
-            	count++;
-            }
+			int digitFive = (i / 10) % 10;
+			int digitFour = (i / 100) % 10;
+			int digitThree = (i / 1000) % 10;
+			int digitTwo = (i / 10000) % 10;
+			int digitOne = (i / 100000) % 10;
+			if ((digitOne + digitTwo + digitThree) == (digitFour + digitFive + digitSix)) {
+				count++;
+			}
 		}
 		return count;
 	}
@@ -104,10 +107,18 @@ public class MathOperation {
 	 * @return array filled with Fibonacci series
 	 */
 
-	
 	public int[] getFibonacciSeries(int length) {
-			return null;
+		int[] array = new int[length];
+		array[0] = 1;
+		array[1] = 1;
+		for (int i = 2; i < array.length; i++) {
+			array[i] = (array[i - 1] + array[i - 2]);
+
+		}
+
+		return array;
 	}
+
 	/**
 	 * Returns array with prime numbers
 	 * 
@@ -153,29 +164,30 @@ public class MathOperation {
 	public void printPascalsTriangle(int numberOfRows) {
 		// TODO the method body
 	}
-	
+
 	public static void main(String[] args) {
 		MathOperation math = new MathOperation();
 		
-		int gdc = math.getCommonDivisor(10, 15); // 5
-		System.out.println("Common Divisor = " + gdc);
-		int sumOfDigits = math.getSumOfDigits(123456); // 21
-		System.out.println("Sum of digits = " + sumOfDigits);
-		boolean isPrime = math.isPrime(7); // true
-		System.out.println(isPrime);
-		isPrime = math.isPrime(10); //false
-		System.out.println(isPrime);
-		long sumOfRow = math.getSumOfRow(5);
-		System.out.println("Sum of row factorials = " + sumOfRow);
-		int count = math.getSixDigitNumbersCount();
-		System.out.println("Count of Lucky numbers is " + count);
+//		int gdc = math.getCommonDivisor(10, 15); // 5
+//		System.out.println("Common Divisor = " + gdc);
+//		int sumOfDigits = math.getSumOfDigits(123456); // 21
+//		System.out.println("Sum of digits = " + sumOfDigits);
+//		boolean isPrime = math.isPrime(7); // true
+//		System.out.println(isPrime);
+//		isPrime = math.isPrime(10); //false
+//		System.out.println(isPrime);
+//		long sumOfRow = math.getSumOfRow(5);
+//		System.out.println("Sum of row factorials = " + sumOfRow);
+//		int count = math.getSixDigitNumbersCount();
+//		System.out.println("Count of Lucky numbers is " + count);
 		int [] fibbonacci = math.getFibonacciSeries(10); // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
-		//for(int i = 0; i < fibbonacci.length; i++){
-		//	System.out.println(fibbonacci[i]);
-		//}
-		int [] primes = math.getPrimeSeries(5); // 1, 3, 5, 7, 11
-		math.printChessboard();
-		int numbersCount = math.createSixDimensionArray();
-		math.printPascalsTriangle(3);
-	}
+		for(int i = 0; i < fibbonacci.length; i++){
+			System.out.println(fibbonacci[i]);
+		}
+//		int [] primes = math.getPrimeSeries(5); // 1, 3, 5, 7, 11
+//		math.printChessboard();
+//		int numbersCount = math.createSixDimensionArray();
+//		math.printPascalsTriangle(3);
+//	}
+}
 }
