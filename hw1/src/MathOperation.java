@@ -40,19 +40,16 @@ public class MathOperation {
 	 * Checks if the given number is prime or not
 	 * 
 	 * @param number
-	 * @return true - if number is prime, if not return false
+	 * @return 
 	 */
-	/** public boolean isPrime(int number) {
-	*		if (number == 1 || number == 2) {
-	*		return true;
-	*	}
-	*	else if (number >2) 
-	*			for (int i = 2; i < number-1; i++)
-	*				if (number % i==0){					
-	*			return false;
-	*			}
-	*		}
-	*/
+	 public boolean isPrime(int number){
+			if (number < 2)	return false;
+				for (int i = 2; i*i < number-1; i++)
+					if (number % i==0)return false;
+				return true;
+				
+			}
+	
 	/**
 	 * Returns sum of row: 1! - 2! + 3! – 4! + 5! - … + n!
 	 * 
@@ -97,8 +94,7 @@ public class MathOperation {
 
 	
 	public int[] getFibonacciSeries(int length) {
-		// TODO the method body
-		return null;
+			return null;
 	}
 	/**
 	 * Returns array with prime numbers
@@ -153,10 +149,10 @@ public class MathOperation {
 		System.out.println("Common Divisor = " + gdc);
 		int sumOfDigits = math.getSumOfDigits(123456); // 21
 		System.out.println("Sum of digits = " + sumOfDigits);
-		//boolean isPrime = math.isPrime(7); // true
-		//System.out.println(isPrime);
-		// isPrime = math.isPrime(10); //false
-		//System.out.println(isPrime);
+		boolean isPrime = math.isPrime(7); // true
+		System.out.println(isPrime);
+		isPrime = math.isPrime(10); //false
+		System.out.println(isPrime);
 		long sumOfRow = math.getSumOfRow(5);
 		System.out.println("Sum of row factorials = " + sumOfRow);
 		int count = math.getSixDigitNumbersCount();
