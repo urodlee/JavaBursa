@@ -94,23 +94,12 @@ public class MathOperation {
 	 *            - the length of the Fibonacci series
 	 * @return array filled with Fibonacci series
 	 */
-	public static int fibonachi (int n){
-		if (n == 0){
-			return 0;
-		}
-		if (n == 1) {
-			return 1;
-		} else {
-			return fibonachi(n - 1) + fibonachi(n - 2);
-			
-		}
-	}
+
 	
 	public int[] getFibonacciSeries(int length) {
 		// TODO the method body
 		return null;
 	}
-
 	/**
 	 * Returns array with prime numbers
 	 * 
@@ -172,6 +161,9 @@ public class MathOperation {
 		System.out.println("Sum of row factorials = " + sumOfRow);
 		int count = math.getSixDigitNumbersCount();
 		int [] fibbonacci = math.getFibonacciSeries(10); // [1, 1, 2, 3, 5, 8, 13, 21, 34, 55]
+		//for(int i = 0; i < fibbonacci.length; i++){
+		//	System.out.println(fibbonacci[i]);
+		//}
 		int [] primes = math.getPrimeSeries(5); // 1, 3, 5, 7, 11
 		math.printChessboard();
 		int numbersCount = math.createSixDimensionArray();
